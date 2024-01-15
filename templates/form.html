@@ -1,0 +1,21 @@
+{% extends 'components/base.html' %}
+
+{% block main %}
+Домашняя страница
+
+
+<div class="p-2">
+    <div class="container">
+        <form method="POST" action="{% url 'post_alco' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="title"/>
+            <textarea type="" name="description"></textarea>
+            <input type="date" name="expired_date"/>
+            <input type="submit">
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock main %}
