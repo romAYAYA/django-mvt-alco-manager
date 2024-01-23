@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.utils import timezone
 
@@ -43,7 +44,8 @@ class AlcoInfo(models.Model):
         blank=True,
         null=True,
         default=None,
-        upload_to='alco_links'
+        upload_to='alco_links',
+        validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])]
     )
 
     class Meta:

@@ -1,14 +1,20 @@
 {% extends 'components/base.html' %}
+{% load static %}
 
 {% block main %}
-Домашняя страница
-
-
-<div class="p-2">
-    <div class="container">
-        hello
+  <div class="container mt-5">
+    <div class="row">
+      {% for alco in alco_info %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{% static alco.qr_image.url %}" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{ alco.title }}</h5>
+              <p class="card-text">{{ alco.description }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
-</div>
-
-
-{% endblock main %}
+  </div>
+{% endblock %}
